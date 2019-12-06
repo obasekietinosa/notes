@@ -6,8 +6,7 @@ export default class PostPreview extends Component {
   render() {
     return (
       <div className="PostPreview">
-        <h3 className="mb-0">
-          {this.props.title}
+        <h3 className="mb-0" dangerouslySetInnerHTML={{ __html: this.props.title }}>
         </h3>
         <p className="mt-0">
           <small>
