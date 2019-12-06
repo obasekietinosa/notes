@@ -1,0 +1,30 @@
+header{
+	height: 50vh;
+}
+
+header, .hero{
+	color: var(--white);
+	background-image: url('/assets/images/stars.png');
+	background-size: cover;
+	background-color: var(--primary);
+}
+
+header, section{
+	margin-bottom: var(--space);
+}
+
+header h1 {
+	font-size: 3rem;
+}
+
+header h2 {
+	font-size: 2rem;
+}
+
+header h3 {
+	font-size: 1rem;
+}
+
+header * {
+	margin: 2px 0;
+}

@@ -1,0 +1,45 @@
+.Quote {
+    background-color: var(--white);
+    width: 500px;
+    position: relative;
+    box-shadow: var(--shadow);
+    border: var(--border);
+}
+
+.Quote > .quote-body {
+    padding: 15px 15px 15px 90px;
+}
+
+.Quote:after {
+    content: '\201D';
+    width: 90px;
+    font-family: 'Georgia',serif;
+    font-size: 72px;
+    line-height: 72px;
+    font-weight: 700;
+    font-style: normal;
+    text-align: center;
+    color: var(--accent);
+    position: absolute;
+    top: 31px;
+    left: 0;
+}
+
+.Quote h3 {
+    font-size: 1rem;
+    font-style: italic;
+}
+
+.Quote p {
+    font-size: small;
+}
+
+@media (min-width: 425px) {
+    .Quote h3 {
+        font-size: 1.5rem;
+    }
+
+    .Quote p {
+        font-size: medium;
+    }
+}

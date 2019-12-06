@@ -1,0 +1,58 @@
+.Post img {
+  height: auto;
+  width: 100%;
+}
+
+.Post h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1.138888889;
+}
+
+.Post p {
+  line-height: 2;
+}
+
+.Post li {
+  margin-bottom: 10px;
+}
+
+.Post blockquote {
+  background-color: var(--white);
+  position: relative;
+  box-shadow: var(--shadow);
+  border: var(--border);
+}
+
+.Post blockquote  {
+  padding: 15px 15px 15px 30px;
+}
+
+.Post blockquote:after {
+  content: '\201D';
+  width: 30px;
+  font-family: 'Georgia',serif;
+  font-size: 30px;
+  line-height: 30px;
+  font-weight: 700;
+  font-style: normal;
+  text-align: center;
+  color: var(--accent);
+  position: absolute;
+  top: 31px;
+  left: 0;
+}
+
+.Post blockquote p {
+  font-size: 1rem;
+  font-style: italic;
+  word-break: break-word;
+}
+
+.Post blockquote cite {
+  font-size: small;
+}
+
+.Post figure {
+  margin: 0;
+}
