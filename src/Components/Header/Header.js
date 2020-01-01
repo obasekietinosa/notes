@@ -4,7 +4,7 @@ export default class Header extends React.Component{
   render() {
     return (
 
-      <header className="d-flex">
+      <header className="Header d-flex">
         <div className="container-fluid justify-content-center align-self-center">
           <div className="row">
             <div className="col-12">
