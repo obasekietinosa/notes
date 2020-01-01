@@ -1,3 +1,9 @@
+.Post header {
+  background-color: var(--white);
+  color: var(--black);
+  padding: 50px 0;
+}
+
 .Post img {
   height: auto;
   width: 100%;
