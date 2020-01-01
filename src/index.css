@@ -18,7 +18,7 @@ html, body{
 }
 
 body {
-	padding-top: 50px;
+	padding-top: 60px;
 	font-family: 'Open Sans', sans-serif;
 	background-color: var(--accent-soft);
 	color: var(--black);
