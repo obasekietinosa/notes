@@ -4,9 +4,9 @@ export default class BlogService {
     POSTS_URL = this.BASE_API_URL + "posts"
     AUTHOR_URL = this.BASE_API_URL + "authors"
 
-    getPosts = async (limit=10, offset=0) => {
+    getPosts = async (limit=100, offset=0) => {
         console.log("Getting posts");
-        let response = await fetch(this.POSTS_URL + "?_embed", {
+        let response = await fetch(this.POSTS_URL + "?_embed&per_page=" + limit, {
             method: 'GET'
         });
         let data = await response.json();
@@ -15,7 +15,7 @@ export default class BlogService {
 
     getPostBySlug = async (slug) => {
         console.log("Getting Post");
-        let response = await fetch(this.POSTS_URL + "?_embed&slug=" + slug, {
+        let response = await fetch(this.POSTS_URL + "?_embed&per_page=1&slug=" + slug, {
             method: 'GET'
         });
         let data = await response.json();
