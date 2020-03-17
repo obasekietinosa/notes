@@ -13,3 +13,9 @@
 .Navbar * {
     margin: 0;
 }
+
+.Navbar a, .Navbar a:hover, .Navbar a:active {
+    color: var(--accent);
+    text-decoration: none;
+    border: none;
+}
