@@ -5,6 +5,7 @@ import Loading from '../../Loading/Loading'
 import Helmet from 'react-helmet'
 import PostDate from '../PostDate'
 import PostAuthor from '../PostAuthor'
+import SocialShare from '../../SocialShare/SocialShare'
 
 export default class Post extends Component {
   constructor() {
@@ -85,6 +86,11 @@ export default class Post extends Component {
                         dangerouslySetInnerHTML={{ __html: this.state.post.content.rendered }}
                       >
                       </div>
+                    </div>
+                  </div>
+                  <div className="row">
+                    <div className="col-10 offset-1 offset-md-3 col-md-6">
+                        <SocialShare text={ "Read " + this.state.post.title.rendered + " on Etin's Notes" } url={ window.location.href } tag={ "#EtinNotes" } />
                     </div>
                   </div>
                 </div>

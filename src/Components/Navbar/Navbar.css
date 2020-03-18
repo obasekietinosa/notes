@@ -18,4 +18,5 @@
     color: var(--accent);
     text-decoration: none;
     border: none;
+    background: none;
 }

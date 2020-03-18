@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function PostAuthor(props) {
     return (
-        <author>
+        <div>
             by &nbsp;
             <img 
                 style={ { width:"50px", height:"50px", borderRadius:"50%", verticalAlign:"middle" } } 
@@ -10,6 +10,6 @@ export default function PostAuthor(props) {
                 alt={ props.author.name }
             /> &nbsp;
             { props.author.name }
-        </author>
+        </div>
     )
 }
