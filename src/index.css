@@ -23,6 +23,7 @@ body {
 	background-color: var(--accent-soft);
 	color: var(--black);
 	word-break: normal;
+	overflow-wrap: break-word;
 }
 
 a {

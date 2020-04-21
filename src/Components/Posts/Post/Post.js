@@ -6,6 +6,7 @@ import Helmet from 'react-helmet'
 import PostDate from '../PostDate'
 import PostAuthor from '../PostAuthor'
 import SocialShare from '../../SocialShare/SocialShare'
+import SyntaxHighlight from '../../Utilities/SyntaxHighlight/SyntaxHighlight'
 
 export default class Post extends Component {
   constructor() {
@@ -81,10 +82,8 @@ export default class Post extends Component {
                 <div className="container-fluid">
                   <div className="row">
                     <div className="col-10 offset-1 offset-md-3 col-md-6">
-                      <div
-                        className="wp-content"
-                        dangerouslySetInnerHTML={{ __html: this.state.post.content.rendered }}
-                      >
+                      <div className="wp-content">
+                        <SyntaxHighlight content={this.state.post.content.rendered} />
                       </div>
                     </div>
                   </div>
