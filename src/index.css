@@ -2,12 +2,17 @@
 	/*--primary: #39d9e7;*/
 	/*--primary: #8c8c8c;*/
 	--primary: #000000;
-	--accent: #ff9696;
-	--accent-soft: #f5efe0;
+	--accent: var(--pink);
+	--accent-soft: var(--light-pink);
+
+
 	--white: #fff;
 	--black: #191e23;
 	--grey: #535353;
 	--light-grey: #cccccc;
+	--pink: #ff9696;
+	--light-pink: #f5efe0;
+
 	--space: 15px;
 	--shadow: 2px 2px 5px;
 	--heading-font: 'Allerta Stencil', sans-serif;
