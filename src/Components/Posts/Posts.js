@@ -15,7 +15,9 @@ export default class Posts extends Component {
         <Route exact path='/posts'>
           <PostList />
         </Route>
-        <Route path='/posts/:slug' component={Post} />
+        <Route path='/posts/:slug'>
+          <Post />
+        </Route>
       </Switch>
     )
   }

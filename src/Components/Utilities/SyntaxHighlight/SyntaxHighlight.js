@@ -1,12 +1,10 @@
 import React, { Component } from 'react'
 import hljs from 'highlight.js/lib/highlight'
 import javascript from 'highlight.js/lib/languages/javascript'
-import css from 'highlight.js/lib/languages/css'
 
 import 'highlight.js/styles/atelier-estuary-dark.css'
 
 hljs.registerLanguage('javascript', javascript);
-hljs.registerLanguage('css', css);
 
 export default class SyntaxHighlight extends Component {
     constructor(props) {
