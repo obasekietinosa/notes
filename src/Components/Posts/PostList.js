@@ -19,30 +19,17 @@ export default class PostList extends Component {
   static contextType = BlogContext
 
   componentDidMount() {
-    console.log(this.context)
-    if (!this.context.length) {
-      // this.getPosts()
-      return
-    }
-    this.setState({ posts:this.context, postsLoaded: true, error: "" })
+      this.context.getPosts()
+      if (this.context.posts.length) {
+        this.setState({ posts:this.context.posts, postsLoaded: true, error: "" })
+      }
   }
 
   componentDidUpdate() {
-    console.log(this.context)
-    if (!this.context.length || this.state.posts.length) {
+    if ( (!this.context.posts.length) || this.state.posts.length) {
       return
     }
-    this.setState({ posts:this.context, postsLoaded: true, error: "" })
-  }
-
-  getPosts = () => {
-    this.blogService.getPosts()
-      .then(data => {
-        let posts = data
-        let postsLoaded = true
-        this.setState({ posts, postsLoaded, error: "" })
-      })
-      .catch(error => this.setState({ error: "There was an error fetching posts. Please try again." }))
+    this.setState({ posts:this.context.posts, postsLoaded: true, error: "" })
   }
 
   render() {

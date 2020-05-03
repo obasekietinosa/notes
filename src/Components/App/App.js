@@ -14,7 +14,8 @@ class App extends Component {
     this.blogService = new BlogService()
     this.state = {
       postsLoaded: false,
-      posts: []
+      posts: [],
+      currentPost: null
     };
   }
 
@@ -35,9 +36,44 @@ class App extends Component {
       .catch(error => this.setState({ error: "There was an error fetching posts. Please try again." }))
   }
 
+  getPost = (slug) => {
+    if(slug === this.state.currentPost?.slug) {
+        return
+    }
+
+    for (let post of this.state.posts) {
+        if(slug === post.slug) {
+            this.setState({currentPost: post})
+            return
+        }
+    }
+
+    this.blogService.getPostBySlug(slug)
+      .then(data => {
+        if (!data) {
+          this.setState({ notFound: true })
+          return
+        }
+        console.log(data)
+        let currentPost = data
+        this.setState({ currentPost, error: "" })
+      })
+      .catch(error => console.log(error))
+  }
+
   render() {
     return (
-      <BlogProvider value={ this.state.posts }>
+      <BlogProvider 
+        value={ 
+            {
+                posts: this.state.posts,
+                currentPost: this.state.currentPost,
+                notFound: this.state.notFound,
+                getPosts: this.getPosts,
+                getPost: this.getPost,
+            } 
+        }
+      >
         <div className="App">
           <BrowserRouter>
             <Navbar />
