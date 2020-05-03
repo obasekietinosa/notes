@@ -13,7 +13,7 @@ const blogService = new BlogService()
 exports = module.exports
 
 exports.render = (routes) => {
-    return (req, res, next) => {
+    return async (req, res, next) => {
         var match = routes.find(route => matchPath(req.path, {
             path: route,
             exact: true,
@@ -24,13 +24,15 @@ exports.render = (routes) => {
         if (match || is404) {
             const filePath = path.resolve(__dirname, '..', 'build', 'index.html')
 
-            fs.readFile(filePath, 'utf8', (err, htmlData) => {
+            fs.readFile(filePath, 'utf8', async (err, htmlData) => {
                 if (err) {
                     console.error('err', err)
                     return res.status(404).end()
                 }
 
                 const location = req.url
+
+                let posts = await blogService.getPosts()
 
                 if (is404) {
                     res.writeHead(404, {'Content-Type': 'text/html'})
@@ -40,15 +42,21 @@ exports.render = (routes) => {
                     res.writeHead(200, {'Content-Type': 'text/html'})
                     console.log(`SSR of ${req.path}`)
                 }
-
-                const jsx = <App location={location} />
+                // console.log(posts)
+                const jsx = <App posts={posts} location={location} />
                 const reactDom = renderToString(jsx)
+
+                console.log(reactDom)
 
                 return res.end(
                     htmlData.replace(
                         '<div id="root"></div>',
                         `<div id="root">${reactDom}</div>`
                     )
+                    // .replace(
+                    //     '__STORE__',
+                    //     JSON.stringify(posts)
+                    // )
                 )
             })
         }

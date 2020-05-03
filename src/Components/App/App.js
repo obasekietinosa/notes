@@ -24,8 +24,8 @@ const AppRoutes = () => (
 )
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.blogService = new BlogService()
     this.state = {
       postsLoaded: false,
@@ -90,8 +90,9 @@ class App extends Component {
         }
       >
         <div className="App">
+        { console.log(this.props.location) }
           {
-            props.location ?
+            true ?
               <StaticRouter>
                 <AppRoutes />
               </StaticRouter>

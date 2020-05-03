@@ -4,7 +4,9 @@ import './index.css';
 import App from './Components/App/App';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.hydrate(<App />, document.getElementById('root'));
+const posts = global.window && global.window.__INITIAL_STATE__
+
+ReactDOM.hydrate(<App posts={posts} />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
