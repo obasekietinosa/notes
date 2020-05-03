@@ -3,6 +3,7 @@ import './Posts.css'
 import Loading from '../Loading/Loading';
 import BlogService from '../../Services/BlogService';
 import PostPreview from './PostPreview/PostPreview';
+import BlogContext from '../Contexts/BlogContext';
 
 export default class PostList extends Component {
   
@@ -15,16 +16,28 @@ export default class PostList extends Component {
     };
   }
 
+  static contextType = BlogContext
+
   componentDidMount() {
-    if (!this.state.postsLoaded) {
-      this.getPosts();
+    console.log(this.context)
+    if (!this.context.length) {
+      // this.getPosts()
+      return
     }
+    this.setState({ posts:this.context, postsLoaded: true, error: "" })
+  }
+
+  componentDidUpdate() {
+    console.log(this.context)
+    if (!this.context.length || this.state.posts.length) {
+      return
+    }
+    this.setState({ posts:this.context, postsLoaded: true, error: "" })
   }
 
   getPosts = () => {
     this.blogService.getPosts()
       .then(data => {
-        console.log(data)
         let posts = data
         let postsLoaded = true
         this.setState({ posts, postsLoaded, error: "" })
@@ -46,9 +59,8 @@ export default class PostList extends Component {
                       {
                         this.state.posts.map((post, key) => {
                           return (
-                            <li>
+                            <li key={key}>
                               <PostPreview
-                                key={key}
                                 title={post.title.rendered}
                                 category={post['_embedded']['wp:term'][0][0].name}
                                 datePublished={post.date}
