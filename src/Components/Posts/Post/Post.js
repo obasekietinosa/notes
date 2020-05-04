@@ -9,6 +9,7 @@ import SocialShare from '../../SocialShare/SocialShare'
 import SyntaxHighlight from '../../Utilities/SyntaxHighlight/SyntaxHighlight'
 import Default from '../../Default/Default'
 import BlogContext from '../../Contexts/BlogContext';
+import ScrollToTop from '../../Utilities/Routing/ScrollToTop'
 
 export default class Post extends Component {
   constructor() {
@@ -121,6 +122,7 @@ export default class Post extends Component {
     }
     return (
       <Fragment>
+        <ScrollToTop />
         { content }
       </Fragment>
     )

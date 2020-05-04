@@ -16,6 +16,7 @@ exports.render = (routes) => {
     return async (req, res, next) => {
         var match = routes.find(route => matchPath(req.path, {
             path: route,
+            exact: true
         }))
 
         const is404 = req._possible404
@@ -40,7 +41,7 @@ exports.render = (routes) => {
                 else {
                     res.writeHead(200, {'Content-Type': 'text/html'})
                     console.log(`SSR of ${req.path}`)
-                    if(req.path.includes('/posts')){
+                    if(req.path.includes('/posts') || req.path === '/'){
                         posts = await blogService.getPosts()
                     }
                 }

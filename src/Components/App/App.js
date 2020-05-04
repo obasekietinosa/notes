@@ -30,14 +30,14 @@ class App extends Component {
     super(props);
     this.blogService = new BlogService()
     this.state = {
-      postsLoaded: false,
+      postsLoaded: true,
       posts: this.props.posts,
       currentPost: null
     };
   }
 
   componentDidMount() {
-    if (!this.state.postsLoaded) {
+    if ((!this.state.postsLoaded) || (!this.state.posts.length)) {
       this.getPosts();
     }
   }
@@ -78,6 +78,30 @@ class App extends Component {
   }
 
   render() {
+    // let history = window.history.listen(location => {
+    //   // Use setTimeout to make sure this runs after React Router's own listener
+    //   setTimeout(() => {
+    //     // Keep default behavior of restoring scroll position when user:
+    //     // - clicked back button
+    //     // - clicked on a link that programmatically calls `history.goBack()`
+    //     // - manually changed the URL in the address bar (here we might want
+    //     // to scroll to top, but we can't differentiate it from the others)
+    //     if (location.action === 'POP') {
+    //       return;
+    //     }
+    //     // In all other cases, check fragment/scroll to top
+    //     var hash = window.location.hash;
+    //     if (hash) {
+    //       var element = document.querySelector(hash);
+    //       if (element) {
+    //         element.scrollIntoView({block: 'start', behavior: 'smooth'});
+    //       }
+    //     } else {
+    //     window.scrollTo(0, 0);
+    //     }
+    //   });
+    // });
+
     return (
       <BlogProvider
         value={
