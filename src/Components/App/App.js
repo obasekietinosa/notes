@@ -29,13 +29,13 @@ class App extends Component {
     this.blogService = new BlogService()
     this.state = {
       postsLoaded: false,
-      posts: [],
+      posts: this.props.posts,
       currentPost: null
     };
   }
 
   componentDidMount() {
-    if (!this.props.posts) {
+    if (!this.state.postsLoaded) {
       this.getPosts();
     }
   }
@@ -43,7 +43,6 @@ class App extends Component {
   getPosts = () => {
     this.blogService.getPosts()
       .then(data => {
-        console.log(data)
         let posts = data
         let postsLoaded = true
         this.setState({ posts, postsLoaded, error: "" })
@@ -90,7 +89,7 @@ class App extends Component {
         }
       >
         <div className="App">
-        { console.log(this.props.location) }
+        { console.log("Location",this.props.location) }
           {
             true ?
               <StaticRouter>

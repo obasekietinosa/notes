@@ -4,7 +4,6 @@
 
 .Header, .hero{
 	color: var(--white);
-	background-image: url('/assets/images/stars.png');
 	background-size: cover;
 	background-color: var(--primary);
 }

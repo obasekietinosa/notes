@@ -4,7 +4,9 @@ import './index.css';
 import App from './Components/App/App';
 import * as serviceWorker from './serviceWorker';
 
-const posts = global.window && global.window.__INITIAL_STATE__
+const initalState = global.window && global.window.__INITIAL_STATE__
+
+const posts = JSON.parse(JSON.stringify(initalState).replace('srcipts>', 'scripts>'))
 
 ReactDOM.hydrate(<App posts={posts} />, document.getElementById('root'));
 

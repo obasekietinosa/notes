@@ -4,7 +4,7 @@ const path = require('path')
 const PORT = 3000
 
 const reactRenderer = require('./react-renderer');
-const routes = ['/', '/page'];
+const routes = ['/', '/posts', '/posts/:slug'];
 
 const app = express()
 

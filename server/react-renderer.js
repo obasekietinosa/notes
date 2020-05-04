@@ -46,17 +46,16 @@ exports.render = (routes) => {
                 const jsx = <App posts={posts} location={location} />
                 const reactDom = renderToString(jsx)
 
-                console.log(reactDom)
+                const renderedHTML = htmlData.replace(
+                    '<div id="root" class="loader"></div>',
+                    `<div id="root" class="loader">${reactDom}</div>`
+                ).replace(
+                    '__STORE__',
+                    JSON.stringify(posts).replace("script>", "srcipt>")
+                )
 
                 return res.end(
-                    htmlData.replace(
-                        '<div id="root"></div>',
-                        `<div id="root">${reactDom}</div>`
-                    )
-                    // .replace(
-                    //     '__STORE__',
-                    //     JSON.stringify(posts)
-                    // )
+                    renderedHTML
                 )
             })
         }
