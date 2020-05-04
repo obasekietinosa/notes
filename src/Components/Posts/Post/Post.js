@@ -57,7 +57,7 @@ export default class Post extends Component {
       status = "POST_LOADED"
     }
     else if (this.context.notFound) {
-      status: "POST_NOT_FOUND"
+      status = "POST_NOT_FOUND"
     }
 
     switch (this.state.status) {

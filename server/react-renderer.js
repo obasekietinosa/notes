@@ -16,7 +16,6 @@ exports.render = (routes) => {
     return async (req, res, next) => {
         var match = routes.find(route => matchPath(req.path, {
             path: route,
-            exact: true,
         }))
 
         const is404 = req._possible404
@@ -32,8 +31,8 @@ exports.render = (routes) => {
 
                 const location = req.url
 
-                let posts = await blogService.getPosts()
-
+                let posts = []
+                
                 if (is404) {
                     res.writeHead(404, {'Content-Type': 'text/html'})
                     console.log(`SSR of unrouted path ${req.path} (404 ahead)`)
@@ -41,6 +40,9 @@ exports.render = (routes) => {
                 else {
                     res.writeHead(200, {'Content-Type': 'text/html'})
                     console.log(`SSR of ${req.path}`)
+                    if(req.path.includes('/posts')){
+                        posts = await blogService.getPosts()
+                    }
                 }
                 // console.log(posts)
                 const jsx = <App posts={posts} location={location} />

@@ -12,10 +12,7 @@ export default class Posts extends Component {
   render() {
     return (
       <Switch>
-        <Route exact path='/posts'>
-          <PostList />
-        </Route>
-        <Route path='/posts/:slug' component={Post} />
+        
       </Switch>
     )
   }

@@ -3,10 +3,11 @@ import './App.css';
 import Navbar from '../Navbar/Navbar';
 import { Switch, Route, BrowserRouter, StaticRouter } from 'react-router-dom';
 import Home from '../Home/Home';
-import Posts from '../Posts/Posts';
 import Default from '../Default/Default';
 import { BlogProvider } from '../Contexts/BlogContext';
 import BlogService from '../../Services/BlogService';
+import Post from '../Posts/Post/Post';
+import PostList from '../Posts/PostList';
 
 const AppRoutes = () => (
   <>
@@ -15,9 +16,10 @@ const AppRoutes = () => (
       <Route exact path="/" >
         <Home />
       </Route>
-      <Route path="/posts">
-        <Posts />
+      <Route exact path='/posts'>
+        <PostList />
       </Route>
+      <Route exact path='/posts/:slug' component={Post} />
       <Route component={Default} />
     </Switch>
   </>
@@ -51,7 +53,7 @@ class App extends Component {
   }
 
   getPost = (slug) => {
-    if (slug === this.state.currentPost ?.slug) {
+    if (slug === this.state.currentPost?.slug) {
       return
     }
 
@@ -89,10 +91,10 @@ class App extends Component {
         }
       >
         <div className="App">
-        { console.log("Location",this.props.location) }
+          {console.log("Location", this.props.location)}
           {
-            true ?
-              <StaticRouter>
+            this.props.location ?
+              <StaticRouter location={this.props.location} >
                 <AppRoutes />
               </StaticRouter>
               :
