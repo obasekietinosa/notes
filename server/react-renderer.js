@@ -1,6 +1,7 @@
 const React = require('react')
 const renderToString = require('react-dom/server').renderToString
 const matchPath = require('react-router').matchPath
+const Helmet = require('react-helmet').default
 const path = require('path')
 const fs = require('fs')
 
@@ -33,6 +34,7 @@ exports.render = (routes) => {
                 const location = req.url
 
                 let posts = []
+                let currentPost = null
                 
                 if (is404) {
                     res.writeHead(404, {'Content-Type': 'text/html'})
@@ -42,19 +44,35 @@ exports.render = (routes) => {
                     res.writeHead(200, {'Content-Type': 'text/html'})
                     console.log(`SSR of ${req.path}`)
                     if(req.path.includes('/posts') || req.path === '/'){
-                        posts = await blogService.getPosts()
+                        if(match.includes(':slug')){
+                          currentPost = await blogService.getPostBySlug(req.path.replace('/posts/', ''))
+                        }
+                        else{
+                          posts = await blogService.getPosts()
+                        }
                     }
                 }
                 // console.log(posts)
-                const jsx = <App posts={posts} location={location} />
+                const initialState = {posts: posts, currentPost:currentPost}
+                const jsx = <App initialState={initialState} location={location} />
                 const reactDom = renderToString(jsx)
+
+                const helmet = Helmet.renderStatic()
+                console.log(helmet.meta.toString(), helmet.title.toString())
+                console.log(reactDom)
 
                 const renderedHTML = htmlData.replace(
                     '<div id="root" class="loader"></div>',
                     `<div id="root" class="loader">${reactDom}</div>`
                 ).replace(
                     '__STORE__',
-                    JSON.stringify(posts).replace("script>", "srcipt>")
+                    JSON.stringify(initialState).replace("script>", "srcipt>")
+                ).replace(
+                    `<meta name="helmet-placeholder" content="">`,
+                    helmet.meta.toString()
+                ).replace(
+                    `<title>Etin's Notes - A Blog By Etin Obaseki</title>`,
+                    helmet.title.toString()
                 )
 
                 return res.end(

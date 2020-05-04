@@ -8,6 +8,7 @@ import { BlogProvider } from '../Contexts/BlogContext';
 import BlogService from '../../Services/BlogService';
 import Post from '../Posts/Post/Post';
 import PostList from '../Posts/PostList';
+import Helmet from 'react-helmet'
 
 const AppRoutes = () => (
   <>
@@ -31,15 +32,9 @@ class App extends Component {
     this.blogService = new BlogService()
     this.state = {
       postsLoaded: true,
-      posts: this.props.posts,
-      currentPost: null
+      posts: this.props.initialState.posts,
+      currentPost: this.props.initialState.currentPost
     };
-  }
-
-  componentDidMount() {
-    if ((!this.state.postsLoaded) || (!this.state.posts.length)) {
-      this.getPosts();
-    }
   }
 
   getPosts = () => {
@@ -78,29 +73,6 @@ class App extends Component {
   }
 
   render() {
-    // let history = window.history.listen(location => {
-    //   // Use setTimeout to make sure this runs after React Router's own listener
-    //   setTimeout(() => {
-    //     // Keep default behavior of restoring scroll position when user:
-    //     // - clicked back button
-    //     // - clicked on a link that programmatically calls `history.goBack()`
-    //     // - manually changed the URL in the address bar (here we might want
-    //     // to scroll to top, but we can't differentiate it from the others)
-    //     if (location.action === 'POP') {
-    //       return;
-    //     }
-    //     // In all other cases, check fragment/scroll to top
-    //     var hash = window.location.hash;
-    //     if (hash) {
-    //       var element = document.querySelector(hash);
-    //       if (element) {
-    //         element.scrollIntoView({block: 'start', behavior: 'smooth'});
-    //       }
-    //     } else {
-    //     window.scrollTo(0, 0);
-    //     }
-    //   });
-    // });
 
     return (
       <BlogProvider
@@ -114,6 +86,21 @@ class App extends Component {
           }
         }
       >
+        <Helmet>
+          <title>Etin's Notes | A Blog By Etin Obaseki</title>
+          <meta property="og:title" content="Etin's Notes | A Memoir by Etin Obaseki" />
+          <meta property="og:description"
+            content="A Seed, learning to become a Tree. I write about the experiences that shape me." />
+          <meta name="description" content="A Seed, learning to become a Tree. I write about the experiences that shape me." />
+          <meta property="og:image" content="%PUBLIC_URL%/icons/thumbnail.png" />
+          <meta property="og:url" content="%PUBLIC_URL%" />
+          <meta name="twitter:title" content="Etin's Notes | A Memoir by Etin Obaseki" />
+          <meta name="twitter:description"
+            content="A Seed, learning to become a Tree. I write about the experiences that shape me." />
+          <meta name="twitter:image" content="%PUBLIC_URL%/icons/thumbnail.png" />
+          <meta property="og:site_name" content="Etin's Notes | A Memoir by Etin Obaseki" />
+          <meta name="twitter:image:alt" content="Etin's Notes | A Memoir by Etin Obaseki" />
+        </Helmet>
         <div className="App">
           {console.log("Location", this.props.location)}
           {

@@ -31,37 +31,20 @@ export default class Post extends Component {
 
   static contextType = BlogContext
 
-  componentDidMount() {
-    console.log(this.context)
-    this.context.getPost(this.props.match.params.slug)
-  }
-
-  componentDidUpdate() {
-    console.log(this.context)
-    if(this.state.postLoaded) {
-      return
-    }
-    if (this.context.currentPost?.slug === this.props.match.params.slug) {
-      this.setState({ post: this.context.currentPost, postLoaded: true, status: "POST_LOADED" })
-      return
-    }
-    else if (this.context.notFound) {
-      this.setState({ status: "POST_NOT_FOUND", postLoaded: true })
-    }
-  }
-
   render() {
     let content = null
     let status = "POST_LOADING"
+    let post = {}
 
     if (this.context.currentPost?.slug === this.props.match.params.slug) {
+      post = this.context.currentPost
       status = "POST_LOADED"
     }
     else if (this.context.notFound) {
       status = "POST_NOT_FOUND"
     }
 
-    switch (this.state.status) {
+    switch (status) {
       case "POST_LOADING":
         content = <Loading />
         break;
@@ -69,28 +52,36 @@ export default class Post extends Component {
         content =
           <div className="Post">
             <Helmet>
-              <title>{this.state.post.title.rendered} - Etin's Notes</title>
-              <meta name="description" content={this.state.post.excerpt.rendered} />
+              <title>{post.title.rendered} - Etin's Notes</title>
+              <meta name="description" content={post.excerpt.rendered} />
+              <meta property="og:title" content={`${post.title.rendered} - Etin's Notes`} />
+              <meta property="og:description" content={post.excerpt.rendered} />
+              <meta property="og:image" content="%PUBLIC_URL%/icons/thumbnail.png" />
+              <meta property="og:url" content={`https://notes.etin.space/posts/${post.slug}`} />
+              <meta name="twitter:title" content={`${post.title.rendered} - Etin's Notes`} />
+              <meta name="twitter:description" content={post.excerpt.rendered} />
+              <meta name="twitter:image" content="%PUBLIC_URL%/icons/thumbnail.png" />
+              <meta name="twitter:card" content="summary_large_image" />
             </Helmet>
             <header>
               <div className="container">
                 <div className="row">
                   <div className="col-10 offset-1 offset-md-3 col-md-6">
                     <h1
-                      dangerouslySetInnerHTML={{ __html: this.state.post.title.rendered }}
+                      dangerouslySetInnerHTML={{ __html: post.title.rendered }}
                     >
                     </h1>
                     <p>
                       <small>
-                        <PostDate date={this.state.post.date} />
+                        <PostDate date={post.date} />
                       </small>
                     </p>
                     <PostAuthor
                       author={
                         {
-                          name: this.state.post._embedded.author[0].name,
-                          slug: this.state.post._embedded.author[0].slug,
-                          avatar: this.state.post._embedded.author[0].avatar_urls[96],
+                          name: post._embedded.author[0].name,
+                          slug: post._embedded.author[0].slug,
+                          avatar: post._embedded.author[0].avatar_urls[96],
                         }
                       }
                     />
@@ -102,13 +93,13 @@ export default class Post extends Component {
               <div className="row">
                 <div className="col-10 offset-1 offset-md-3 col-md-6">
                   <div className="wp-content">
-                    <SyntaxHighlight content={this.state.post.content.rendered} />
+                    <SyntaxHighlight content={post.content.rendered} />
                   </div>
                 </div>
               </div>
               <div className="row">
                 <div className="col-10 offset-1 offset-md-3 col-md-6">
-                  <SocialShare text={"Read " + this.state.post.title.rendered + " on Etin's Notes"} url={window.location.href} tag={"#EtinNotes"} />
+                  <SocialShare text={"Read " + post.title.rendered + " on Etin's Notes"} url={`https://notes.etin.space/posts/${post.slug}`} tag={"#EtinNotes"} />
                 </div>
               </div>
             </div>
