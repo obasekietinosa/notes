@@ -43,6 +43,9 @@ export default class Post extends Component {
     else if (this.context.notFound) {
       status = "POST_NOT_FOUND"
     }
+    else{
+      this.context.getPost(this.props.match.params.slug)
+    }
 
     switch (status) {
       case "POST_LOADING":
@@ -56,11 +59,11 @@ export default class Post extends Component {
               <meta name="description" content={post.excerpt.rendered} />
               <meta property="og:title" content={`${post.title.rendered} - Etin's Notes`} />
               <meta property="og:description" content={post.excerpt.rendered} />
-              <meta property="og:image" content={`https://services.etin.space/notes/generate-image/?name=${post.title.rendered}`} />
+              <meta property="og:image" content={`https://services.etin.space/notes/generate-image/?title=${encodeURI(post.title.rendered)}`} />
               <meta property="og:url" content={`https://notes.etin.space/posts/${post.slug}`} />
               <meta name="twitter:title" content={`${post.title.rendered} - Etin's Notes`} />
               <meta name="twitter:description" content={post.excerpt.rendered} />
-              <meta name="twitter:image" content="%PUBLIC_URL%/icons/thumbnail.png" />
+              <meta name="twitter:image" content={`https://services.etin.space/notes/generate-image/?title=${encodeURI(post.title.rendered)}`} />
               <meta name="twitter:card" content="summary_large_image" />
             </Helmet>
             <header>
