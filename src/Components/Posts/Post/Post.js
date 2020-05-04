@@ -51,6 +51,14 @@ export default class Post extends Component {
 
   render() {
     let content = null
+    let status = "POST_LOADING"
+
+    if (this.context.currentPost?.slug === this.props.match.params.slug) {
+      status = "POST_LOADED"
+    }
+    else if (this.context.notFound) {
+      status: "POST_NOT_FOUND"
+    }
 
     switch (this.state.status) {
       case "POST_LOADING":
