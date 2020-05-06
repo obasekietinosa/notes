@@ -1,0 +1,30 @@
+.Posts ol {
+	counter-reset: a;
+	list-style-type: none;
+	padding-inline-start: 3.5rem;
+	display: relative;
+}
+
+.Posts li {
+	border-bottom: solid 1px var(--accent);
+}
+
+.Posts li h3 {
+	font-size: 1.3rem;
+}
+
+.Posts li::before {
+	position: absolute;
+	left: 0;
+	counter-increment: a;
+	content: counter(a)'.';
+	color: var(--grey);
+	font-family: var(--heading-font);
+	font-size: 3rem;
+	font-weight: 700;
+	width: 4.0625rem;
+	text-align: center;
+	pointer-events: none;
+	height: 4.6875rem;
+	line-height: 4.6875rem;
+}

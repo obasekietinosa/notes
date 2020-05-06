@@ -1,0 +1,14 @@
+.QuoteSlider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 0 45px;
+}
+
+@media (min-width: 768px) {
+  .QuoteSlider {
+    margin-left: 25%;
+    width: 50%;
+  }
+}
