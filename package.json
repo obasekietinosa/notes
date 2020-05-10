@@ -11,6 +11,7 @@
     "@babel/register": "^7.9.0",
     "babel-plugin-transform-assets": "^1.0.2",
     "express": "^4.17.1",
+    "express-sslify": "^1.2.0",
     "highlight.js": "^9.18.1",
     "ignore-styles": "^5.0.1",
     "isomorphic-unfetch": "^3.0.0",
