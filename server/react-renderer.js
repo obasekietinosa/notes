@@ -66,7 +66,7 @@ exports.render = (routes) => {
                     `<div id="root" class="loader">${reactDom}</div>`
                 ).replace(
                     '__STORE__',
-                    JSON.stringify(initialState).replace("script>", "srcipt>")
+                    JSON.stringify(initialState).split("script>").join("srcipt>")
                 ).replace(
                     `<meta name="helmet-placeholder" content="">`,
                     helmet.meta.toString()

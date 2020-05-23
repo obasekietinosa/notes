@@ -6,7 +6,7 @@ import * as serviceWorker from './serviceWorker';
 
 var initialState = global.window && global.window.__INITIAL_STATE__
 
-initialState = initialState ? JSON.parse(JSON.stringify(initialState).replace('srcipts>', 'scripts>')) : []
+initialState = initialState ? JSON.parse(JSON.stringify(initialState).split('srcipts>').join('scripts>')) : []
 
 ReactDOM.hydrate(<App initialState={ initialState } />, document.getElementById('root'));
 
