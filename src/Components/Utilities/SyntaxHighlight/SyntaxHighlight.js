@@ -1,12 +1,6 @@
 import React, { Component } from 'react'
-import hljs from 'highlight.js/lib/highlight'
-import javascript from 'highlight.js/lib/languages/javascript'
-import css from 'highlight.js/lib/languages/css'
-
-import 'highlight.js/styles/atelier-estuary-dark.css'
-
-hljs.registerLanguage('javascript', javascript);
-hljs.registerLanguage('css', css);
+import Prism from "prismjs"
+import './prism.css'
 
 export default class SyntaxHighlight extends Component {
     constructor(props) {
@@ -15,20 +9,11 @@ export default class SyntaxHighlight extends Component {
     }
 
     componentDidMount() {
-        this.highlight()
+      Prism.highlightAll()
     }
 
     componentDidUpdate() {
-        this.highlight()
-    }
-
-    highlight = () => {
-        if (this.nodeRef) {
-            const nodes = this.nodeRef.current.querySelectorAll('pre')
-            nodes.forEach((node) => {
-                hljs.highlightBlock(node)
-            })
-        }
+      Prism.highlightAll()
     }
 
     render() {

@@ -7,32 +7,19 @@ import BlogContext from '../Contexts/BlogContext';
 
 export default class PostList extends Component {
   
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.blogService = new BlogService()
     this.state = {
-      postsLoaded: false,
+      postsLoaded: true,
       posts: []
     };
   }
 
   static contextType = BlogContext
 
-  componentDidMount() {
-      this.context.getPosts()
-      if (this.context.posts.length) {
-        this.setState({ posts:this.context.posts, postsLoaded: true, error: "" })
-      }
-  }
-
-  componentDidUpdate() {
-    if ( (!this.context.posts.length) || this.state.posts.length) {
-      return
-    }
-    this.setState({ posts:this.context.posts, postsLoaded: true, error: "" })
-  }
-
   render() {
+    let posts = this.context.posts
     return (
       <div className="Posts">
         <div className="container-fluid">
@@ -44,7 +31,7 @@ export default class PostList extends Component {
                   (
                     <ol>
                       {
-                        this.state.posts.map((post, key) => {
+                        posts.map((post, key) => {
                           return (
                             <li key={key}>
                               <PostPreview

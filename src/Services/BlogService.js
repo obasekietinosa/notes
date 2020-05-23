@@ -1,3 +1,5 @@
+import fetch from "isomorphic-unfetch";
+
 export default class BlogService {
     ROOT_URL = "https://services.etin.space/notes/"
     BASE_API_URL = this.ROOT_URL + "wp-json/wp/v2/"
