@@ -1,21 +1,24 @@
 :root{
 	/*--primary: #39d9e7;*/
 	/*--primary: #8c8c8c;*/
-	--primary: #000000;
-	--accent: var(--pink);
-	--accent-soft: var(--light-pink);
+	--primary: var(--yellow);
+	--accent: var(--black);
+	--accent-soft: var(--light-grey);
 
 
 	--white: #fff;
-	--black: #191e23;
+	--off-black: #191e23;
+	--black: #000;
 	--grey: #535353;
 	--light-grey: #cccccc;
 	--pink: #ff9696;
 	--light-pink: #f5efe0;
+  --yellow: #ffff43;
 
 	--space: 15px;
 	--shadow: 2px 2px 5px;
-	--heading-font: 'Allerta Stencil', sans-serif;
+	--heading-font: 'Montserrat', sans-serif;
+  --body-font: 'Montserrat', sans-serif;
 }
 
 html, body{
@@ -23,9 +26,9 @@ html, body{
 }
 
 body {
-	padding-top: 60px;
-	font-family: 'Open Sans', sans-serif;
-	background-color: var(--accent-soft);
+	padding-top: 90px;
+	font-family: var(--body-font);
+	background-color: var(--white);
 	color: var(--black);
 	word-break: normal;
 	overflow-wrap: break-word;
@@ -76,11 +79,12 @@ code {
 
 h1, h2{
 	font-family: var(--heading-font);
+  font-weight: 700;
 }
 
 .colored{
-	color: var(--accent);
-	/*text-shadow: var(--shadow) #000;*/
+	color: var(--primary);
+	text-shadow: var(--shadow) #000;
 }
 
 .img-fluid{
@@ -103,9 +107,10 @@ h1, h2{
 
 .btn{
 	padding: var(--space);
-	/*box-shadow: var(--shadow) #010101;*/
 	text-transform: uppercase;
 	font-size: 13px;
+  font-weight: 500;
+  border-radius: 30px;
 	/*border: solid 1px #000;*/
 	text-decoration: none;
 	display: inline-block;
@@ -119,7 +124,7 @@ h1, h2{
 }
 
 .btn-primary {
-	background-color: transparent;
+	background-color: var(--primary);
 	border: 0.5px solid var(--accent);
 	color: inherit;
 	box-shadow: 3px 3px 0px var(--accent);

@@ -1,11 +1,11 @@
 .Header{
-	height: 50vh;
+	height: 60vh;
 }
 
 .Header, .hero{
-	color: var(--white);
+	color: var(--black);
 	background-size: cover;
-	background-color: var(--primary);
+	background-color: var(--white);
 }
 
 .Header, section{

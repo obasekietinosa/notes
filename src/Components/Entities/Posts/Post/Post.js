@@ -1,15 +1,15 @@
 import React, { Component, Fragment } from 'react'
 import './Post.css'
-import BlogService from '../../../Services/BlogService'
-import Loading from '../../Loading/Loading'
+import BlogService from '../../../../Services/BlogService'
+import Loading from '../../../Utilities/Loading/Loading'
 import Helmet from 'react-helmet'
 import PostDate from '../PostDate'
 import PostAuthor from '../PostAuthor'
-import SocialShare from '../../SocialShare/SocialShare'
-import SyntaxHighlight from '../../Utilities/SyntaxHighlight/SyntaxHighlight'
-import Default from '../../Default/Default'
-import BlogContext from '../../Contexts/BlogContext';
-import ScrollToTop from '../../Utilities/Routing/ScrollToTop'
+import SocialShare from '../../../Utilities/SocialShare/SocialShare'
+import SyntaxHighlight from '../../../Utilities/SyntaxHighlight/SyntaxHighlight'
+import Default from '../../../Pages/Default/Default'
+import BlogContext from '../../../Contexts/BlogContext';
+import ScrollToTop from '../../../Utilities/Routing/ScrollToTop'
 
 export default class Post extends Component {
   constructor() {

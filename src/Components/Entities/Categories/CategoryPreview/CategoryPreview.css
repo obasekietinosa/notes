@@ -1,0 +1,19 @@
+.CategoryPreview {
+  text-align: center;
+  width: 100%;
+}
+
+.CategoryPreview h3 {
+  font-family: var(--heading-font);
+}
+
+.CategoryPreview .title {
+    text-decoration: none;
+    color: inherit;
+}
+
+.CategoryPreview span {
+  background: var(--accent);
+  padding: 5px;
+  font-size: 10px;
+}
