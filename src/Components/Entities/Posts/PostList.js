@@ -5,14 +5,11 @@ import BlogService from 'Services/BlogService';
 import BlogContext from 'Components/Contexts/BlogContext';
 
 export default class PostList extends Component {
-  
-  constructor(props) {
-    super(props);
-    this.blogService = new BlogService()
-    this.state = {
-      postsLoaded: true,
-      posts: []
-    };
+
+  componentDidMount() {
+    if (! this.context.postsLoaded) {
+      this.context.getPosts(this.props.limit)
+    }
   }
 
   static contextType = BlogContext
@@ -25,7 +22,16 @@ export default class PostList extends Component {
       <Layout {...this.props.layout.props} >
         {
           posts.map((post, key) => (
-              <Post key={key} post={post} />
+              <Post 
+                key={key}
+                post={{
+                  title: post.title.rendered,
+                  datePublished: post.date,
+                  category: post['_embedded']['wp:term'][0][0].name,
+                  excerpt: post.excerpt.rendered,
+                  link: "/posts/" + post.slug
+                }}
+             />
             )
           )
         }

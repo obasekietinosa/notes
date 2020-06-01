@@ -18,8 +18,14 @@ require('@babel/register')({
                     "jpg",
                     "png"
                 ],
-                "name": "static/media/[name].[hash8].[ext]"
+                "name": "static/media/[name].[hash:8].[ext]"
             }
+        ],
+        [
+          "module-resolver", 
+          {
+            "root": ["./src"]
+          }
         ]
     ]
 })
