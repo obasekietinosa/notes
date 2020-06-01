@@ -1,6 +1,7 @@
 import React from "react"
 import PostList from "Components/Entities/Posts/PostList"
-import PostPreview from "Components/Entities/Posts/PostPreview/PostPreview"
+import CardColumns from "Components/Utilities/Layout/Containers/CardColumns"
+import PostPreviewCard from "Components/Entities/Posts/Renders/PostPreviewCard"
 
 export default function MostRecentPosts() {
   return (
@@ -12,10 +13,10 @@ export default function MostRecentPosts() {
             <PostList
               limit={10}
               layout={{
-                component: React.Fragment,
+                component: CardColumns,
                 props: {}
               }}
-              renderAs={PostPreview}
+              renderAs={PostPreviewCard}
             />
           </div>
         </div>

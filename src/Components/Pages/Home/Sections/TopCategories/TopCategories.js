@@ -1,6 +1,6 @@
 import React from 'react'
 import CategoryList from 'Components/Entities/Categories/CategoryList'
-import CategoryPreview from 'Components/Entities/Categories/CategoryPreview/CategoryPreview'
+import CategoryPreview from 'Components/Entities/Categories/Renders/CategoryPreview'
 import Stack from 'Components/Utilities/Layout/Containers/Stack'
 
 export default function TopCategories() {

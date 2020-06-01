@@ -9,7 +9,6 @@ export default class Header extends Component{
             <div className="col-12 text-center">
               <h2>Insight From</h2>
               <h1>Nigeria's Biggest Music Community.</h1>
-              <h3></h3>
               <a href="mailto:wetalksound@gmail.com" className="btn btn-primary">Subscribe!</a>
             </div>
           </div>

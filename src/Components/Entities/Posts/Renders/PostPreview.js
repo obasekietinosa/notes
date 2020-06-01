@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from "react-router-dom"
 import './PostPreview.css'
-import PostDate from '../PostDate'
+import PostDate from './PostDate'
 
 export default class PostPreview extends Component {
   render() {

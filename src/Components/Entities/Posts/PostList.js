@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
-import './Posts.css'
 import Loading from 'Components/Utilities/Loading/Loading';
-import BlogService from 'Services/BlogService';
 import BlogContext from 'Components/Contexts/BlogContext';
 
 export default class PostList extends Component {
@@ -27,6 +25,7 @@ export default class PostList extends Component {
                 post={{
                   title: post.title.rendered,
                   datePublished: post.date,
+                  image: post['_embedded']['wp:featuredmedia'][0]?.source_url,
                   category: post['_embedded']['wp:term'][0][0].name,
                   excerpt: post.excerpt.rendered,
                   link: "/posts/" + post.slug
