@@ -22,8 +22,11 @@ export default function FullPost({ post }) {
       </Helmet>
       <header>
         <div className="container">
-          <div className="row">
-            <div className="col-12">
+          <div className="row align-items-md-center">
+            <div className="col-12 col-md-6">
+              <img class="img-fluid" alt={post.title.rendered} src={post['_embedded']['wp:featuredmedia'][0]?.source_url} />
+            </div>
+            <div className="col-12 col-md-6">
               <h1
                 dangerouslySetInnerHTML={{ __html: post.title.rendered }}
               >

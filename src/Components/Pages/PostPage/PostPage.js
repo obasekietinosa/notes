@@ -8,7 +8,6 @@ export default function PostPage({ match }) {
       <div className="container">
         <div className="row">
           <div className="col-12">
-            <h4 className="text-center">Categories</h4>
             <Post 
               match={match}
               layout={{
