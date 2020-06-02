@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import logo from './logo.png'
 import './Navbar.css'
 
 export default function Navbar() {
@@ -8,7 +7,7 @@ export default function Navbar() {
       <div className="Navbar">
         <div className="container">
           <div class="Navleft"> 
-            <img src={logo} alt="WTS Blog" class="img-fluid" />
+            <img src="https://services.etin.space/wts/wp-content/uploads/2020/06/logo.png" alt="WTS Blog" class="img-fluid" />
           </div>
           <div class="Navright">
             <div class="NavLinks">
