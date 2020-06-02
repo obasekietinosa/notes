@@ -6,9 +6,9 @@ import Stack from 'Components/Utilities/Layout/Containers/Stack'
 export default function TopCategories() {
   return (
     <div className="Categories">
-        <div className="container-fluid">
+        <div className="container">
           <div className="row">
-            <div className="col-10 offset-1 offset-md-0 col-md-12">
+            <div className="col-12">
               <h4 className="text-center">Categories</h4>
               <CategoryList 
                 limit={5}

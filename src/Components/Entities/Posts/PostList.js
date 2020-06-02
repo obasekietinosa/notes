@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Loading from 'Components/Utilities/Loading/Loading';
+// import Loading from 'Components/Utilities/Loading/Loading';
 import BlogContext from 'Components/Contexts/BlogContext';
 
 export default class PostList extends Component {

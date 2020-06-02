@@ -2,26 +2,26 @@ import React, { Component } from 'react';
 import './App.css';
 import Navbar from 'Components/Utilities/Layout/Navbar/Navbar';
 import { Switch, Route, BrowserRouter, StaticRouter } from 'react-router-dom';
-import Home from 'Components/Pages/Home/Home';
-import Default from 'Components/Pages/Default/Default';
+import HomePage from 'Components/Pages/HomePage/HomePage';
+import DefaultPage from 'Components/Pages/DefaultPage/DefaultPage';
 import { BlogProvider } from 'Components/Contexts/BlogContext';
 import BlogService from 'Services/BlogService';
-import Post from 'Components/Entities/Posts/Post/Post';
 import PostList from 'Components/Entities/Posts/PostList';
 import Helmet from 'react-helmet'
+import PostPage from 'Components/Pages/PostPage/PostPage';
 
 const AppRoutes = () => (
   <>
     <Navbar />
     <Switch>
       <Route exact path="/" >
-        <Home />
+        <HomePage />
       </Route>
       <Route exact path='/posts'>
         <PostList />
       </Route>
-      <Route exact path='/posts/:slug' component={Post} />
-      <Route component={Default} />
+      <Route exact path='/posts/:slug' component={PostPage} />
+      <Route component={DefaultPage} />
     </Switch>
   </>
 )
@@ -32,9 +32,9 @@ class App extends Component {
     this.blogService = new BlogService()
     this.state = {
       postsLoaded: true,
-      posts: this.props.initialState.posts,
+      posts: this.props.initialState.posts ?? [],
       currentPost: this.props.initialState.currentPost,
-      categories: this.props.initialState.categories,
+      categories: this.props.initialState.categories ?? [],
       categoriesLoaded: true
     };
   }

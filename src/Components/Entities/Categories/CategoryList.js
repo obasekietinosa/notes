@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import Loading from 'Components/Utilities/Loading/Loading'
-import CategoryPreview from './Renders/CategoryPreview'
+// import Loading from 'Components/Utilities/Loading/Loading'
 import BlogContext from 'Components/Contexts/BlogContext'
 
 export default class CategoryList extends Component {
