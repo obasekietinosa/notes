@@ -4,6 +4,7 @@ import PostDate from './PostDate'
 import PostAuthor from './PostAuthor'
 import SocialShare from 'Components/Utilities/SocialShare/SocialShare'
 import SyntaxHighlight from 'Components/Utilities/SyntaxHighlight/SyntaxHighlight'
+import './FullPost.css'
 
 export default function FullPost({ post }) {
   return (

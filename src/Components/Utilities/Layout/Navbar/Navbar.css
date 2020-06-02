@@ -1,6 +1,6 @@
 .Navbar {
-    height: 90px;
-    line-height: 90px;
+    height: 110px;
+    line-height: 110px;
     background-color: var(--white);
     color: var(--accent);
     text-align: center;
@@ -13,7 +13,7 @@
 
 .Navbar .container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
   padding: 15px;
 }
@@ -47,7 +47,7 @@
 }
 
 .NavLinks ul > li {
-  margin-right: 35px;
+  margin-right: 10px;
 }
 
 .NavLinks ul > li:last-child {
@@ -68,6 +68,15 @@
 
 @media screen and (min-width: 48em) {
   .Navbar {
+    height: 90px;
+    line-height: 90px;
+  }
+
+  .Navbar .container {
       flex-direction: row;
+  }
+
+  .NavLinks ul > li {
+    margin-right: 35px;
   }
 }
