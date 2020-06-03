@@ -60,7 +60,7 @@ export default function FullPost({ post }) {
         </div>
         <div className="row">
           <div className="col-12">
-            <SocialShare text={"Read " + post.title.rendered + " on WeTalk Sound"} url={`https://notes.etin.space/posts/${post.slug}`} tag={"#EtinNotes"} />
+            <SocialShare text={"Read " + post.title.rendered + " on WeTalk Sound"} url={`https://blog.wetalksound.co/posts/${post.slug}`} tag={"#EtinNotes"} />
           </div>
         </div>
       </div>

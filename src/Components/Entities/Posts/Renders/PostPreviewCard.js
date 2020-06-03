@@ -11,7 +11,9 @@ export default class PostPreviewCard extends Component {
           <span>
             {this.props.post.category}
           </span>
-          <h5 className="card-title" dangerouslySetInnerHTML={{ __html: this.props.post.title }}></h5>
+          <Link to={this.props.post.link}>
+            <h5 className="card-title" dangerouslySetInnerHTML={{ __html: this.props.post.title }}></h5>
+          </Link>
           <p className="card-subtitle">
             WetalkSound - <PostDate date={this.props.post.datePublished} />
           </p>
