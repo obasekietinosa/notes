@@ -5,19 +5,13 @@ import './CategoryPreview.css'
 export default function CategoryPreview ({ category, ...props }) {
   return (
     <div {...props} className="CategoryPreview">
+      <img className="img-fluid" src={`https://services.etin.space/wts/extra/${category.slug}.jpg`} />
       <Link to={category.link} className="title">
-          <h3 className="mb-0" dangerouslySetInnerHTML={{ __html: category.name }}>
-          </h3>
+          <h5 className="mb-0" dangerouslySetInnerHTML={{ __html: category.name }}>
+          </h5>
+          <small>{ `${category.count} Article(s)` }</small>
       </Link>
-      {/* <span>
-        {category.category}
-      </span> */}
       <div dangerouslySetInnerHTML={{ __html: category.description }}>
-      </div>
-      <div>
-        <Link to={category.link} className="btn btn-primary">
-          Read Now
-        </Link>
       </div>
     </div>
   )
