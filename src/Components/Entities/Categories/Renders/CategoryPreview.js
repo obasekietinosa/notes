@@ -5,7 +5,7 @@ import './CategoryPreview.css'
 export default function CategoryPreview ({ category, ...props }) {
   return (
     <div {...props} className="CategoryPreview">
-      <img className="img-fluid" src={`https://services.etin.space/wts/extra/${category.slug}.jpg`} />
+      <img className="img-fluid img-round" style={{borderRadius: '10px'}} alt={category.name} src={`https://services.etin.space/wts/extra/${category.slug}.jpg`} />
       <Link to={category.link} className="title">
           <h5 className="mb-0" dangerouslySetInnerHTML={{ __html: category.name }}>
           </h5>

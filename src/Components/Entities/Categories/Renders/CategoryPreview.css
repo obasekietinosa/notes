@@ -1,5 +1,8 @@
 .CategoryPreview {
-  width: 100%;
+  width: 50%;
+  padding: 15px;
+  flex-basis: 100%;
+  flex: 1;
 }
 
 .CategoryPreview h3 {
