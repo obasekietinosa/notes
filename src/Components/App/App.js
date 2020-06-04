@@ -3,26 +3,30 @@ import './App.css';
 import Navbar from 'Components/Utilities/Layout/Navbar/Navbar';
 import { Switch, Route, BrowserRouter, StaticRouter } from 'react-router-dom';
 import HomePage from 'Components/Pages/HomePage/HomePage';
+import AllPostsPage from 'Components/Pages/AllPostsPage/AllPostsPage';
+import PostPage from 'Components/Pages/PostPage/PostPage';
 import DefaultPage from 'Components/Pages/DefaultPage/DefaultPage';
 import { BlogProvider } from 'Components/Contexts/BlogContext';
 import BlogService from 'Services/BlogService';
-import PostList from 'Components/Entities/Posts/PostList';
 import Helmet from 'react-helmet'
-import PostPage from 'Components/Pages/PostPage/PostPage';
+import Footer from 'Components/Utilities/Layout/Footer/Footer';
 
 const AppRoutes = () => (
   <>
     <Navbar />
-    <Switch>
-      <Route exact path="/" >
-        <HomePage />
-      </Route>
-      <Route exact path='/posts'>
-        <PostList />
-      </Route>
-      <Route exact path='/posts/:slug' component={PostPage} />
-      <Route component={DefaultPage} />
-    </Switch>
+    <main>
+      <Switch>
+        <Route exact path="/" >
+          <HomePage />
+        </Route>
+        <Route exact path='/posts'>
+          <AllPostsPage />
+        </Route>
+        <Route exact path='/posts/:slug' component={PostPage} />
+        <Route component={DefaultPage} />
+      </Switch>
+    </main>
+    <Footer />
   </>
 )
 
