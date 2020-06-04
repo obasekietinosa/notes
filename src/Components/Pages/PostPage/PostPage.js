@@ -4,7 +4,7 @@ import FullPost from 'Components/Entities/Posts/Renders/FullPost';
 
 export default function PostPage({ match }) {
   return (
-    <div className="Categories">
+    <div className="Post">
       <div className="container">
         <div className="row">
           <div className="col-12">

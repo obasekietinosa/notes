@@ -1,15 +1,7 @@
-.Header{
-	height: 60vh;
-}
-
-.Header, .hero{
+.Header, .hero {
 	color: var(--black);
 	background-size: cover;
 	background-color: var(--white);
-}
-
-.Header, section{
-	margin-bottom: var(--space);
 }
 
 .Header h1 {

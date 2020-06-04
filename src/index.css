@@ -96,15 +96,6 @@ h1, h2{
 	text-align: center;
 }
 
-#about p{
-	line-height: 2;
-}
-
-.profile, .project img{
-	box-shadow: 5px 5px 0px var(--primary);
-	border: solid;
-}
-
 .btn{
 	padding: var(--space);
 	text-transform: uppercase;
@@ -136,22 +127,9 @@ h1, h2{
 	color: var(--white);
 }
 
-.quote {
-	font-size: 3rem;
-	margin: 2px 0;
-}
-
-.project{
-	background-color: #eee;
-	/* height: 250px; */
-	padding: var(--space);
-	margin-bottom: var( --space);
-	margin-top: var( --space);
-}
-
-#portfolio .col-md-6 a{
-	text-decoration: none;
-	color: initial;
+.Header, section{
+	margin-bottom: var(--space);
+  padding: calc(2 * var(--space)) 0;
 }
 
 

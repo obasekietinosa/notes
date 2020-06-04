@@ -5,7 +5,7 @@ import PostPreviewCard from "Components/Entities/Posts/Renders/PostPreviewCard"
 
 export default function MostRecentPosts() {
   return (
-    <div className="MostRecentPosts">
+    <section className="MostRecentPosts">
       <div className="container">
         <div className="row">
           <div className="col-12">
@@ -21,6 +21,6 @@ export default function MostRecentPosts() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   )
 }
