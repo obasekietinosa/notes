@@ -10,10 +10,12 @@ import { BlogProvider } from 'Components/Contexts/BlogContext';
 import BlogService from 'Services/BlogService';
 import Helmet from 'react-helmet'
 import Footer from 'Components/Utilities/Layout/Footer/Footer';
+import ScrollToTop from 'Components/Utilities/Routing/ScrollToTop'
 
 const AppRoutes = () => (
   <>
     <Navbar />
+    <ScrollToTop />
     <main>
       <Switch>
         <Route exact path="/" >

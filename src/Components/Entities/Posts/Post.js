@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import BlogContext from 'Components/Contexts/BlogContext';
-import ScrollToTop from 'Components/Utilities/Routing/ScrollToTop'
+import BlogContext from 'Components/Contexts/BlogContext'
 import Loading from 'Components/Utilities/Loading/Loading'
 import Default from 'Components/Pages/DefaultPage/DefaultPage'
 
@@ -44,7 +43,6 @@ export default class Post extends Component {
     }
     return (
       <Fragment>
-        <ScrollToTop />
         { content }
       </Fragment>
     )
