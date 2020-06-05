@@ -6,3 +6,7 @@
 .FullPost p {
   line-height: 2;
 }
+
+.FullPost header img {
+  border-radius: 10px;
+}

@@ -8,7 +8,7 @@ import './FullPost.css'
 
 export default function FullPost({ post }) {
   return (
-    <div className="Post">
+    <div className="FullPost">
       <Helmet>
         <title>{post.title.rendered} - WeTalk Sound</title>
         <meta name="description" content={post.excerpt.rendered} />
