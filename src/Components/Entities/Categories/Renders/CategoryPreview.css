@@ -9,6 +9,10 @@
   font-family: var(--heading-font);
 }
 
+.CategoryPreview a {
+  border-bottom: none;
+}
+
 .CategoryPreview .title {
     text-decoration: none;
     color: inherit;

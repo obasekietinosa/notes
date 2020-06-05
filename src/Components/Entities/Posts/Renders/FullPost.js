@@ -21,7 +21,7 @@ export default function FullPost({ post }) {
         <meta name="twitter:image" content={`https://services.etin.space/notes/generate-image/?title=${encodeURI(post.title.rendered)}`} />
         <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
-      <header>
+      <header className="py-5">
         <div className="container">
           <div className="row align-items-md-center">
             <div className="col-12 col-md-6">
