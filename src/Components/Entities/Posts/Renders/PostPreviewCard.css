@@ -1,0 +1,7 @@
+.PostPreviewCard {
+  border-color: transparent;
+}
+
+.PostPreviewCard img {
+  border-radius: 10px;
+}
