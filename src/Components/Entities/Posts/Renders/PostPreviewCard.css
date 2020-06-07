@@ -1,5 +1,6 @@
 .PostPreviewCard {
   border-color: transparent;
+  background-color: var(--off-black);
   border-radius: 10px;
 }
 
