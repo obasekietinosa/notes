@@ -39,6 +39,10 @@ main {
     min-height: calc(100vh - 100px);
 }
 
+p {
+	font-size: 15px;
+}
+
 a {
 	color: initial;
 	text-decoration: none;
