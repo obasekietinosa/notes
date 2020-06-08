@@ -1,8 +1,8 @@
 .Navbar {
     height: 110px;
     line-height: 110px;
-    background-color: var(--white);
-    color: var(--accent);
+    background-color: var(--black);
+    color: var(--white);
     text-align: center;
     position: fixed;
     top: 0;
@@ -55,7 +55,7 @@
 }
 
 .Navbar a, .Navbar a:hover, .Navbar a:active {
-    color: var(--black);
+    color: var(--white);
     text-decoration: none;
     border: none;
     background: none;
