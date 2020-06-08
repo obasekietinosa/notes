@@ -52,7 +52,8 @@ a {
 
 a:hover {
 	color: var(--white);
-	background-color: var(--accent);
+	background-color: var(--black);
+	text-decoration: none;
 }
 
 pre {
