@@ -7,3 +7,12 @@
 .PostPreviewCard img {
   border-radius: 10px;
 }
+
+.PostPreviewCard span {
+    border-radius: 10px;
+    border: solid 1.5px;
+    padding: 0 5px;
+    border-radius: 10px;
+    border: solid 1.5px;
+    padding: 0 5px;
+}
