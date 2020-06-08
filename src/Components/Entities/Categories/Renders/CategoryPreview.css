@@ -1,0 +1,25 @@
+.CategoryPreview {
+  width: 50%;
+  padding: 15px;
+  flex-basis: 100%;
+  flex: 1;
+}
+
+.CategoryPreview h3 {
+  font-family: var(--heading-font);
+}
+
+.CategoryPreview a {
+  border-bottom: none;
+}
+
+.CategoryPreview .title {
+    text-decoration: none;
+    color: inherit;
+}
+
+.CategoryPreview span {
+  background: var(--accent);
+  padding: 5px;
+  font-size: 10px;
+}

@@ -1,10 +1,20 @@
 import fetch from "isomorphic-unfetch";
 
 export default class BlogService {
-    ROOT_URL = "https://services.etin.space/notes/"
+    ROOT_URL = "https://blog-admin.wetalksound.co/"
     BASE_API_URL = this.ROOT_URL + "wp-json/wp/v2/"
     POSTS_URL = this.BASE_API_URL + "posts"
+    CATEGORIES_URL = this.BASE_API_URL + "categories"
     AUTHOR_URL = this.BASE_API_URL + "authors"
+
+    getCategories = async (limit=100, offset=0) => {
+        console.log("Getting categories");
+        let response = await fetch(this.CATEGORIES_URL + "?_embed&per_page=" + limit, {
+            method: 'GET'
+        });
+        let data = await response.json();
+        return data;
+    }
 
     getPosts = async (limit=100, offset=0) => {
         console.log("Getting posts");
