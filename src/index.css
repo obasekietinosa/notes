@@ -44,7 +44,7 @@ p {
 }
 
 a {
-	color: initial;
+	color: var(--off-white);
 	text-decoration: none;
 	border-bottom: 3px solid var(--accent);
 	transition: .4s cubic-bezier(0.19, 1, 0.22, 1)
