@@ -1,34 +1,28 @@
 import React, { Component } from 'react';
 import './App.css';
-import Navbar from 'Components/Utilities/Layout/Navbar/Navbar';
+import Navbar from '../Navbar/Navbar';
 import { Switch, Route, BrowserRouter, StaticRouter } from 'react-router-dom';
-import HomePage from 'Components/Pages/HomePage/HomePage';
-import AllPostsPage from 'Components/Pages/AllPostsPage/AllPostsPage';
-import PostPage from 'Components/Pages/PostPage/PostPage';
-import DefaultPage from 'Components/Pages/DefaultPage/DefaultPage';
-import { BlogProvider } from 'Components/Contexts/BlogContext';
-import BlogService from 'Services/BlogService';
+import Home from '../Home/Home';
+import Default from '../Default/Default';
+import { BlogProvider } from '../Contexts/BlogContext';
+import BlogService from '../../Services/BlogService';
+import Post from '../Posts/Post/Post';
+import PostList from '../Posts/PostList';
 import Helmet from 'react-helmet'
-import Footer from 'Components/Utilities/Layout/Footer/Footer';
-import ScrollToTop from 'Components/Utilities/Routing/ScrollToTop'
 
 const AppRoutes = () => (
   <>
     <Navbar />
-    <ScrollToTop />
-    <main>
-      <Switch>
-        <Route exact path="/" >
-          <HomePage />
-        </Route>
-        <Route exact path='/posts'>
-          <AllPostsPage />
-        </Route>
-        <Route exact path='/posts/:slug' component={PostPage} />
-        <Route component={DefaultPage} />
-      </Switch>
-    </main>
-    <Footer />
+    <Switch>
+      <Route exact path="/" >
+        <Home />
+      </Route>
+      <Route exact path='/posts'>
+        <PostList />
+      </Route>
+      <Route exact path='/posts/:slug' component={Post} />
+      <Route component={Default} />
+    </Switch>
   </>
 )
 
@@ -38,21 +32,9 @@ class App extends Component {
     this.blogService = new BlogService()
     this.state = {
       postsLoaded: true,
-      posts: this.props.initialState.posts ?? [],
-      currentPost: this.props.initialState.currentPost,
-      categories: this.props.initialState.categories ?? [],
-      categoriesLoaded: true
+      posts: this.props.initialState.posts,
+      currentPost: this.props.initialState.currentPost
     };
-  }
-
-  getCategories = () => {
-    this.blogService.getCategories()
-      .then(data => {
-        let categories = data
-        let categoriesLoaded = true
-        this.setState({ categories, categoriesLoaded, error: "" })
-      })
-      .catch(error => this.setState({ error: "There was an error fetching categories. Please try again." }))
   }
 
   getPosts = () => {
@@ -96,30 +78,28 @@ class App extends Component {
       <BlogProvider
         value={
           {
-            categories: this.state.categories,
             posts: this.state.posts,
             currentPost: this.state.currentPost,
             notFound: this.state.notFound,
             getPosts: this.getPosts,
-            getCategories: this.getCategories,
             getPost: this.getPost,
           }
         }
       >
         <Helmet>
-          <title>WeTalkSound | Nigeria's Biggest Music Community</title>
-          <meta property="og:title" content="WeTalkSound | Nigeria's Biggest Music Community" />
+          <title>Etin's Notes | A Blog By Etin Obaseki</title>
+          <meta property="og:title" content="Etin's Notes | A Memoir by Etin Obaseki" />
           <meta property="og:description"
             content="A Seed, learning to become a Tree. I write about the experiences that shape me." />
           <meta name="description" content="A Seed, learning to become a Tree. I write about the experiences that shape me." />
           <meta property="og:image" content="%PUBLIC_URL%/icons/thumbnail.png" />
           <meta property="og:url" content="%PUBLIC_URL%" />
-          <meta name="twitter:title" content="WeTalkSound | Nigeria's Biggest Music Community" />
+          <meta name="twitter:title" content="Etin's Notes | A Memoir by Etin Obaseki" />
           <meta name="twitter:description"
             content="A Seed, learning to become a Tree. I write about the experiences that shape me." />
           <meta name="twitter:image" content="%PUBLIC_URL%/icons/thumbnail.png" />
-          <meta property="og:site_name" content="WeTalkSound | Nigeria's Biggest Music Community" />
-          <meta name="twitter:image:alt" content="WeTalkSound | Nigeria's Biggest Music Community" />
+          <meta property="og:site_name" content="Etin's Notes | A Memoir by Etin Obaseki" />
+          <meta name="twitter:image:alt" content="Etin's Notes | A Memoir by Etin Obaseki" />
         </Helmet>
         <div className="App">
           {console.log("Location", this.props.location)}
