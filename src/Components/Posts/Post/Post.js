@@ -67,9 +67,9 @@ export default class Post extends Component {
               <meta name="twitter:card" content="summary_large_image" />
             </Helmet>
             <header>
-              <div className="container">
+              <div className="container-fluid">
                 <div className="row">
-                  <div className="col-10 offset-1 offset-md-3 col-md-6">
+                  <div className="col-10 offset-1">
                     <h1
                       dangerouslySetInnerHTML={{ __html: post.title.rendered }}
                     >
@@ -94,7 +94,7 @@ export default class Post extends Component {
             </header>
             <div className="container-fluid">
               <div className="row">
-                <div className="col-10 offset-1 offset-md-3 col-md-6">
+                <div className="col-10 offset-1">
                   <div className="wp-content">
                     <SyntaxHighlight content={post.content.rendered} />
                   </div>
